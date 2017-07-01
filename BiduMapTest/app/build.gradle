@@ -1,13 +1,23 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
+    compileSdkVersion 26
     buildToolsVersion "25.0.3"
 
+    signingConfigs {
+        debug {
+            storeFile file('C:/Users/Administrator/.android/debug.keystore')
+        }
+    }
+    sourceSets{
+        main{
+            jniLibs.srcDirs 'libs'
+        }
+    }
     defaultConfig {
         applicationId "com.example.administrator.bidumaptest"
         minSdkVersion 15
-        targetSdkVersion 25
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
     }
@@ -19,8 +29,14 @@ android {
     }
 }
 
+repositories{
+    flatDir{
+        dir 'libs'
+    }
+}
+
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:appcompat-v7:26.+'
 }
