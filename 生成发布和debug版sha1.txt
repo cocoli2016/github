@@ -1,0 +1,11 @@
+debug版：
+cd .android
+keytool -list -v -keystore debug.keystore
+
+密钥库口令为：android
+
+发布版：
+首先进入.jks路径
+cmd输入 keytool -v -list -keystore jks文件名.jks
+
+密钥库口令：baidumap  （.jkd的密码）
